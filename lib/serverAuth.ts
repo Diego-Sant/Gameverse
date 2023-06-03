@@ -4,7 +4,6 @@ import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import prismadb from "@/lib/prismadb";
 
-// Checagem para ver se o usuário está logado
 const serverAuth = async (req: NextApiRequest, res: NextApiResponse) => {
     const session = await getServerSession(req, res, authOptions);
 
@@ -12,7 +11,6 @@ const serverAuth = async (req: NextApiRequest, res: NextApiResponse) => {
         throw new Error('Você não está logado!')
     }
 
-    // Conferir se o usuário atual corresponde com o email
     const currentUser = await prismadb.user.findUnique({
         where: {
             email: session.user.email,

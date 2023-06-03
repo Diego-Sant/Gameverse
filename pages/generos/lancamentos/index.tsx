@@ -1,8 +1,10 @@
-import GameCard from "@/components/GameCard";
 import Navbar from "@/components/Navbar";
 
 import { NextPageContext } from "next";
 import { getSession } from "next-auth/react";
+
+import useDataList from "@/hooks/useDataList";
+import GameList from "@/components/GameList";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
@@ -22,12 +24,17 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 
 export default function Home() {
+    const {data: incoming = []} = useDataList();
+
+  const sortByRating = (data: Record<string, any>[]) => {
+    return data.sort((a, b) => b.rating - a.rating);
+  };
 
   return (
     <>
       <Navbar />
-      <div className="pb-40"> 
-        <GameCard />
+      <div> 
+        <GameList title="Lançamentos" data={incoming} />
       </div>
     </>
   )

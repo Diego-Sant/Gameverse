@@ -52,3 +52,97 @@ html {
     background-color: white;
     animation: loading 2s linear;
 }
+
+.box span {
+  background: url("/images/favorites.jpg");
+}
+
+.box2 span {
+  background: url("/images/lancamentos.jpg");
+}
+
+.box3 span {
+  background: url("/images/singleplayer.jpg");
+}
+
+.box4 span {
+  background: url("/images/multiplayer.jpg");
+}
+
+.box5 span {
+  background: url("/images/playstation.jpg");
+}
+
+.box6 span {
+  background: url("/images/xbox.jpg");
+}
+
+.box7 span {
+  background: url("/images/nintendo.jpg");
+}
+
+.box8 span {
+  background: url("/images/pcplataforms.jpg");
+}
+
+.box9 span {
+  background: url("/images/indie.jpg");
+}
+
+.box10 span {
+  background: url("/images/category.jpg");
+}
+
+.box span, .box2 span, 
+.box3 span, .box4 span, 
+.box5 span, .box6 span, 
+.box7 span, .box8 span,
+.box9 span, .box10 span {
+  position: absolute;
+  inset: 0;
+  transition: 0.5s;
+  background-size: cover;
+  border-radius: 0.75rem;
+}
+
+.box span:nth-child(1), .box2 span:nth-child(1), 
+.box3 span:nth-child(1), .box4 span:nth-child(1), 
+.box5 span:nth-child(1), .box6 span:nth-child(1), 
+.box7 span:nth-child(1), .box8 span:nth-child(1),
+.box9 span:nth-child(1), .box10 span:nth-child(1) {
+  clip-path: polygon(0 0, 100% 1%, 100% 51%, 0 51%);
+}
+
+.box span:nth-child(2), .box2 span:nth-child(2), 
+.box3 span:nth-child(2), .box4 span:nth-child(2), 
+.box5 span:nth-child(2), .box6 span:nth-child(2), 
+.box7 span:nth-child(2), .box8 span:nth-child(2),
+.box9 span:nth-child(2), .box10 span:nth-child(2) {
+  clip-path: polygon(0 49%, 100% 49%, 100% 100%, 0 100%);
+}
+
+.box:hover span:nth-child(1), .box2:hover span:nth-child(1), 
+.box3:hover span:nth-child(1), .box4:hover span:nth-child(1), 
+.box5:hover span:nth-child(1), .box6:hover span:nth-child(1), 
+.box7:hover span:nth-child(1), .box8:hover span:nth-child(1),
+.box9:hover span:nth-child(1), .box10:hover span:nth-child(1)   {
+  transform: translateY(-20px)
+}
+
+.box:hover span:nth-child(2), .box2:hover span:nth-child(2), 
+.box3:hover span:nth-child(2), .box4:hover span:nth-child(2), 
+.box5:hover span:nth-child(2), .box6:hover span:nth-child(2), 
+.box7:hover span:nth-child(2), .box8:hover span:nth-child(2),
+.box9:hover span:nth-child(2), .box10:hover span:nth-child(2)  {
+  transform: translateY(20px)
+}
+
+@media (min-width: 1536px) and (max-width: 1700px) {
+  .xl1grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  .px1grid {
+    padding-right: 8rem !important;
+    padding-left: 12rem !important;
+  }
+}
