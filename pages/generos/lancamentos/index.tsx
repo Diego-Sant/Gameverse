@@ -34,7 +34,7 @@ export default function Home() {
     <>
       <Navbar />
       <div> 
-        <GameList title="Lançamentos" data={incoming} />
+        <GameList title="Lançamentos" data={sortByRating(incoming)} />
       </div>
     </>
   )

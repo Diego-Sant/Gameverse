@@ -146,3 +146,18 @@ html {
     padding-left: 12rem !important;
   }
 }
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #450df2; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #5838d2; 
+}

@@ -74,6 +74,22 @@ model Lancamentos {
   publisher String
 }
 
+model EmBreve {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  videoUrl String
+  thumbnailUrl String
+  secondThumbnailUrl String
+  thirdThumbnailUrl String
+  ageRatingUrl String
+  rating String
+  genre String
+  released String
+  timeToBeat String
+  publisher String
+}
+
 model SinglePlayer {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   title String
