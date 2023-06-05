@@ -24,7 +24,8 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 
 export default function Home() {
-    const {data: incoming = []} = useDataList();
+    const {data: incoming = []} = useDataList("/api/incoming");
+    const {data: embreve = []} = useDataList("/api/embreve");
 
   const sortByRating = (data: Record<string, any>[]) => {
     return data.sort((a, b) => b.rating - a.rating);
@@ -35,6 +36,7 @@ export default function Home() {
       <Navbar />
       <div> 
         <GameList title="Lançamentos" data={sortByRating(incoming)} />
+        <GameList title="Em breve" data={embreve} />
       </div>
     </>
   )

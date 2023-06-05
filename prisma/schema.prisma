@@ -83,10 +83,8 @@ model EmBreve {
   secondThumbnailUrl String
   thirdThumbnailUrl String
   ageRatingUrl String
-  rating String
   genre String
   released String
-  timeToBeat String
   publisher String
 }
 

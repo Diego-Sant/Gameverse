@@ -4,6 +4,7 @@ import ReactPlayer from "react-player";
 
 import {AiFillHeart, AiFillStar} from "react-icons/ai";
 import {FaForward, FaVolumeMute, FaVolumeUp, FaBackward} from "react-icons/fa";
+import FavoriteButton from "./FavoriteButton";
 
 interface GameCardProps {
     data: Record<string, any>;
@@ -83,10 +84,10 @@ const GameGenresCard: React.FC<GameCardProps> = ({data}) => {
                         {data?.videoUrl && (
 
                         <>
-                            <div onClick={handleBack5Seconds} className="cursor-pointer skipsmall w-6 h-6 lg:w-10 lg:h-10 bg-transparent border-white border-2 rounded-full flex justify-center items-center transition hover:bg-neutral-300 absolute bottom-2 left-2">
+                            <div onClick={handleBack5Seconds} className="cursor-pointer skipsmall w-6 h-6 lg:w-10 lg:h-10 bg-[#450df2] border-white border-2 rounded-full flex justify-center items-center transition hover:bg-purple-400 absolute bottom-2 left-2">
                                 <FaBackward className="text-white lg:text-[15px] text-[10px]" />
                             </div>
-                            <div onClick={handleSkip5Seconds} className="cursor-pointer skipsmall w-6 h-6 lg:w-10 lg:h-10 bg-transparent border-white border-2 rounded-full flex justify-center items-center transition hover:bg-neutral-300 absolute bottom-2 left-14">
+                            <div onClick={handleSkip5Seconds} className="cursor-pointer skipsmall w-6 h-6 lg:w-10 lg:h-10 bg-[#450df2] border-white border-2 rounded-full flex justify-center items-center transition hover:bg-purple-400 absolute bottom-2 left-14">
                                 <FaForward className="text-white lg:text-[15px] text-[10px]" />
                             </div>
                         </>
@@ -94,7 +95,7 @@ const GameGenresCard: React.FC<GameCardProps> = ({data}) => {
                         )}
 
                         {data?.videoUrl && (
-                            <div onClick={handleToggleMute} className="cursor-pointer mutesmall w-6 h-6 lg:w-10 lg:h-10 bg-transparent border-white border-2 rounded-full flex justify-center items-center transition hover:bg-neutral-300 absolute bottom-2 right-2">
+                            <div onClick={handleToggleMute} className="cursor-pointer mutesmall w-6 h-6 lg:w-10 lg:h-10 bg-[#450df2] border-white border-2 rounded-full flex justify-center items-center transition hover:bg-purple-400 absolute bottom-2 right-2">
                                 {muted ? 
                                     (<FaVolumeMute className="text-white lg:text-[15px] text-[10px]" />
                                         ) : (
@@ -106,14 +107,12 @@ const GameGenresCard: React.FC<GameCardProps> = ({data}) => {
                         <div className="flex flex-col items-center">
                             <div className="z-30 bg-[#450df2] p-2 lg:p-4 w-full transition shadow-md cursor-auto rounded-b-lg">
                                 <div className="text-white font-bold text-sm sm:text-md lg:text-lg text-center">
-                                {data?.title}
+                                    {data?.title && data.title.length > 30 ? `${data.title.slice(0, 30)}...` : data?.title}
                                 </div>
                             </div>
                             <div className="p-2 z-50 w-full transition">
                             <div className="flex items-center justify-center">
-                                <div className="text-white font-bold relative bottom-5">
-                                    <AiFillHeart size={30} />
-                                </div>
+                                <FavoriteButton gameId={data?.id} />
                             </div>
                             </div>
                         </div>
