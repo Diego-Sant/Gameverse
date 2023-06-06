@@ -32,17 +32,17 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
                 throw new Error("ID inválido!")
             }
 
-            const isGameInFavorites = currentUser.favoriteIds.includes(gameId);
+            const isGameInDislikes = currentUser.dislikedIds.includes(gameId);
 
-            if (isGameInFavorites) {
-                const updatedFavoriteIds = currentUser.favoriteIds.filter((id: string) => id !== gameId);
+            if (isGameInDislikes) {
+                const updatedDislikeIds = currentUser.dislikedIds.filter((id: string) => id !== gameId);
         
                 await prismadb.user.update({
                   where: {
                     email: currentUser.email || "",
                   },
                   data: {
-                    favoriteIds: updatedFavoriteIds,
+                    dislikedIds: updatedDislikeIds,
                   },
                 });
             }
@@ -52,7 +52,7 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
                     email: currentUser.email || ""
                 },
                 data: {
-                    favoriteIds: {
+                    dislikedIds: {
                         push: gameId
                     }
                 },
@@ -86,14 +86,14 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
               throw new Error("ID inválido!");
             }
       
-            const updatedFavoriteIds = without(currentUser.favoriteIds, gameId);
+            const updatedDislikeIds = without(currentUser.dislikedIds, gameId);
       
             const updatedUser = await prismadb.user.update({
               where: {
                 email: currentUser.email || "",
               },
               data: {
-                favoriteIds: updatedFavoriteIds,
+                dislikedIds: updatedDislikeIds,
               },
             });
       

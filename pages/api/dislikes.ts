@@ -14,24 +14,24 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
 
       const games: {[key: string]: any} = {lancamentos: prismadb.lancamentos, emBreve: prismadb.emBreve, indie: prismadb.indie, categorias: prismadb.categorias, multiplayer: prismadb.multiPlayer, nintendo: prismadb.nintendo, pc: prismadb.pC, playstation: prismadb.playstation, singleplayer: prismadb.singlePlayer, xbox: prismadb.xbox}
 
-      let favoriteGames: any[] = [];
+      let dislikedGames: any[] = [];
 
       for (const game of Object.keys(games)) {
         const gameOfType = await games[game].findMany({
           where: {
             id: {
-              in: currentUser?.favoriteIds,
+              in: currentUser?.dislikedIds,
             },
           },
         });
       
         if (gameOfType !== null) {
-          favoriteGames = [...favoriteGames, ...gameOfType];
+          dislikedGames = [...dislikedGames, ...gameOfType];
         }
       }
 
       const gamesIds = new Set();
-      const uniquefavoriteGames = favoriteGames.filter((game) => {
+      const uniquedislikedGames = dislikedGames.filter((game) => {
         if (gamesIds.has(game.id)) {
           return false;
         }
@@ -39,12 +39,12 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
         return true;
       })
       .sort((a: any, b: any) => {
-        const orderA = currentUser.favoriteIds.indexOf(a.id);
-        const orderB = currentUser.favoriteIds.indexOf(b.id);
+        const orderA = currentUser.dislikedIds.indexOf(a.id);
+        const orderB = currentUser.dislikedIds.indexOf(b.id);
         return orderA - orderB;
       })
 
-      return res.status(200).json(uniquefavoriteGames);
+      return res.status(200).json(uniquedislikedGames);
 
   } catch (error) {
       console.log(error);

@@ -38,7 +38,7 @@ const GameCard = () => {
                         <p className="text-white text-lg md:text-2xl font-bold">Lançamentos</p>
                     </div>
 
-                    <div className="box3 flex cursor-pointer items-center justify-center relative mt-2 lg:mb-4 h-[150px] w-[210px] xl:h-[180px] xl:w-[270px] 2xl:h-[220px] 2xl:w-[300px]">
+                    <div onClick={() => handleCategoryClick('/generos/umjogador')} className="box3 flex cursor-pointer items-center justify-center relative mt-2 lg:mb-4 h-[150px] w-[210px] xl:h-[180px] xl:w-[270px] 2xl:h-[220px] 2xl:w-[300px]">
                         <span></span>
                         <span></span>
                         <p className="text-white text-lg md:text-2xl font-bold">Um jogador</p>
@@ -84,6 +84,18 @@ const GameCard = () => {
                         <span></span>
                         <span></span>
                         <p className="text-white text-lg md:text-2xl font-bold">Categorias</p>
+                    </div>
+
+                    <div onClick={() => handleCategoryClick('/generos/querojogar')} className="box11 flex cursor-pointer items-center justify-center relative mt-2 lg:mb-4 h-[150px] w-[210px] xl:h-[180px] xl:w-[270px] 2xl:h-[220px] 2xl:w-[300px]">
+                        <span></span>
+                        <span></span>
+                        <p className="text-white text-lg md:text-2xl font-bold">Quero jogar</p>
+                    </div>
+
+                    <div onClick={() => handleCategoryClick('/generos/naogostei')} className="box12 flex cursor-pointer items-center justify-center relative mt-2 lg:mb-4 h-[150px] w-[210px] xl:h-[180px] xl:w-[270px] 2xl:h-[220px] 2xl:w-[300px]">
+                        <span></span>
+                        <span></span>
+                        <p className="text-white text-lg md:text-2xl font-bold">Jogos que não gostei</p>
                     </div>
 
                     {isLoading && <LoadingScreen />}

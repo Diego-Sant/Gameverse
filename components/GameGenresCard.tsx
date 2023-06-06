@@ -1,10 +1,15 @@
-import React, { useState, useRef, useEffect } from "react";
+import React, { useState, useRef } from "react";
 import { useRouter } from "next/router";
 import ReactPlayer from "react-player";
 
-import {AiFillHeart, AiFillStar} from "react-icons/ai";
+import {AiFillStar} from "react-icons/ai";
 import {FaForward, FaVolumeMute, FaVolumeUp, FaBackward} from "react-icons/fa";
+import { BsChevronDown } from "react-icons/bs";
+
 import FavoriteButton from "./FavoriteButton";
+import DislikeButton from "./DislikeButton";
+import WannaPlayButton from "./WannaPlayButton";
+import useInfoModal from "@/hooks/useInfoModal";
 
 interface GameCardProps {
     data: Record<string, any>;
@@ -12,6 +17,7 @@ interface GameCardProps {
 
 const GameGenresCard: React.FC<GameCardProps> = ({data}) => {
     const router = useRouter();
+    const {openModal} = useInfoModal();
     const playerRef = useRef<ReactPlayer | null>(null);
 
     const [isHovered, setIsHovered] = useState(false);
@@ -66,11 +72,11 @@ const GameGenresCard: React.FC<GameCardProps> = ({data}) => {
                         </div> 
                     : ""}
                     {/* eslint-disable-next-line */}
-                    {data?.ageRatingUrl ? <img src={data?.ageRatingUrl} className="w-6 h-6 absolute bottom-2 right-2" alt="Classificação do Conteúdo"/> : ""}
+                    {data.ageRatingUrl ? <img src={data.ageRatingUrl} className="w-6 h-6 absolute bottom-2 right-2" alt="Classificação do Conteúdo"/> : ""}
                     {/* eslint-disable-next-line */}
-                    <img className="rounded-lg cursor-pointer transition duration shadow-xl group-hover:opacity-90 sm:group-hover:opacity-0 delay-300" src={data?.thumbnailUrl} alt={data?.title}/>
+                    <img className="rounded-lg cursor-pointer transition duration shadow-xl group-hover:opacity-90 sm:group-hover:opacity-0 delay-300" src={data.thumbnailUrl} alt={data.title}/>
                     <div className="opacity-0 absolute object-cover w-full h-full group-hover:opacity-100">
-                    <ReactPlayer ref={playerRef} className="w-full object-cover cursor-pointer" style={{ pointerEvents: "none" }} url={data?.videoUrl} playing={isHovered && isAutoplay} loop muted={muted} controls={false} width="100%" height="100%" config={{
+                    <ReactPlayer ref={playerRef} className="w-full object-cover cursor-pointer" style={{ pointerEvents: "none" }} url={data.videoUrl} playing={isHovered && isAutoplay} loop muted={muted} controls={false} width="100%" height="100%" config={{
                             youtube: {
                                 playerVars: {
                                     disablekb: 1,
@@ -81,21 +87,21 @@ const GameGenresCard: React.FC<GameCardProps> = ({data}) => {
                             }
                     }} />
 
-                        {data?.videoUrl && (
+                        {data.videoUrl && (
 
                         <>
-                            <div onClick={handleBack5Seconds} className="cursor-pointer skipsmall w-6 h-6 lg:w-10 lg:h-10 bg-[#450df2] border-white border-2 rounded-full flex justify-center items-center transition hover:bg-purple-400 absolute bottom-2 left-2">
+                            <div onClick={handleBack5Seconds} className="cursor-pointer skipsmall w-8 h-8 lg:w-10 lg:h-10 bg-[#450df2] border-white border-2 rounded-full flex justify-center items-center transition hover:bg-purple-400 absolute bottom-2 left-2">
                                 <FaBackward className="text-white lg:text-[15px] text-[10px]" />
                             </div>
-                            <div onClick={handleSkip5Seconds} className="cursor-pointer skipsmall w-6 h-6 lg:w-10 lg:h-10 bg-[#450df2] border-white border-2 rounded-full flex justify-center items-center transition hover:bg-purple-400 absolute bottom-2 left-14">
+                            <div onClick={handleSkip5Seconds} className="cursor-pointer skipsmall w-8 h-8 lg:w-10 lg:h-10 bg-[#450df2] border-white border-2 rounded-full flex justify-center items-center transition hover:bg-purple-400 absolute bottom-2 left-12 lg:left-14">
                                 <FaForward className="text-white lg:text-[15px] text-[10px]" />
                             </div>
                         </>
 
                         )}
 
-                        {data?.videoUrl && (
-                            <div onClick={handleToggleMute} className="cursor-pointer mutesmall w-6 h-6 lg:w-10 lg:h-10 bg-[#450df2] border-white border-2 rounded-full flex justify-center items-center transition hover:bg-purple-400 absolute bottom-2 right-2">
+                        {data.videoUrl && (
+                            <div onClick={handleToggleMute} className="cursor-pointer mutesmall w-8 h-8 lg:w-10 lg:h-10 bg-[#450df2] border-white border-2 rounded-full flex justify-center items-center transition hover:bg-purple-400 absolute bottom-2 right-12 lg:right-14">
                                 {muted ? 
                                     (<FaVolumeMute className="text-white lg:text-[15px] text-[10px]" />
                                         ) : (
@@ -103,17 +109,25 @@ const GameGenresCard: React.FC<GameCardProps> = ({data}) => {
                                 )}
                             </div>
                         )}
+
+                        {data.videoUrl && (
+                            <div onClick={() => openModal(data?.id)} className="cursor-pointer mutesmall w-8 h-8 lg:w-10 lg:h-10 bg-[#450df2] border-white border-2 rounded-full flex justify-center items-center transition hover:bg-purple-400 absolute bottom-2 right-2">
+                                <BsChevronDown className="text-white lg:text-[15px] text-[10px]" />
+                            </div>
+                        )}
                     
                         <div className="flex flex-col items-center">
                             <div className="z-30 bg-[#450df2] p-2 lg:p-4 w-full transition shadow-md cursor-auto rounded-b-lg">
                                 <div className="text-white font-bold text-sm sm:text-md lg:text-lg text-center">
-                                    {data?.title && data.title.length > 30 ? `${data.title.slice(0, 30)}...` : data?.title}
+                                    {data.title && data.title.length > 30 ? `${data.title.slice(0, 30)}...` : data.title}
                                 </div>
                             </div>
                             <div className="p-2 z-50 w-full transition">
-                            <div className="flex items-center justify-center">
-                                <FavoriteButton gameId={data?.id} />
-                            </div>
+                                <div className="flex items-center justify-center gap-3">
+                                    <DislikeButton gameId={data.id} />
+                                    <WannaPlayButton gameId={data.id} />
+                                    <FavoriteButton gameId={data.id} />
+                                </div>
                             </div>
                         </div>
 

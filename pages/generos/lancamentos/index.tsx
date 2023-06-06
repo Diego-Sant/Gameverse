@@ -5,6 +5,8 @@ import { getSession } from "next-auth/react";
 
 import useDataList from "@/hooks/useDataList";
 import GameList from "@/components/GameList";
+import useInfoModal from "@/hooks/useInfoModal";
+import InfoModal from "@/components/InfoModal";
 
 export async function getServerSideProps(context: NextPageContext) {
   const session = await getSession(context);
@@ -24,8 +26,9 @@ export async function getServerSideProps(context: NextPageContext) {
 }
 
 export default function Home() {
-    const {data: incoming = []} = useDataList("/api/incoming");
-    const {data: embreve = []} = useDataList("/api/embreve");
+  const {data: incoming = []} = useDataList("/api/incoming");
+  const {data: embreve = []} = useDataList("/api/embreve");
+  const { isOpen, closeModal } = useInfoModal();
 
   const sortByRating = (data: Record<string, any>[]) => {
     return data.sort((a, b) => b.rating - a.rating);
@@ -33,6 +36,7 @@ export default function Home() {
 
   return (
     <>
+      <InfoModal visible={isOpen} onClose={closeModal} />
       <Navbar />
       <div> 
         <GameList title="Lançamentos" data={sortByRating(incoming)} />

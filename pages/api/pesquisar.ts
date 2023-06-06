@@ -58,7 +58,16 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
           }
         }
 
-        const sortedGames = sortByRating(searchGames);
+        const gamesIds = new Set();
+        const uniqueSearchGames = searchGames.filter((game) => {
+          if (gamesIds.has(game.id)) {
+            return false;
+          }
+          gamesIds.add(game.id);
+          return true;
+        });
+
+        const sortedGames = sortByRating(uniqueSearchGames);
 
         return res.status(200).json(sortedGames);
     } catch (error) {
