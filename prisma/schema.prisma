@@ -66,8 +66,8 @@ model Lancamentos {
   description String
   videoUrl String
   thumbnailUrl String
-  secondThumbnailUrl String
-  thirdThumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
   ageRatingUrl String
   rating String
   genre String
@@ -82,8 +82,8 @@ model EmBreve {
   description String
   videoUrl String
   thumbnailUrl String
-  secondThumbnailUrl String
-  thirdThumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
   ageRatingUrl String
   genre String
   released String
@@ -96,8 +96,8 @@ model SinglePlayer {
   description String
   videoUrl String
   thumbnailUrl String
-  secondThumbnailUrl String
-  thirdThumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
   ageRatingUrl String
   rating String
   genre String
@@ -112,8 +112,8 @@ model MultiPlayer {
   description String
   videoUrl String
   thumbnailUrl String
-  secondThumbnailUrl String
-  thirdThumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
   ageRatingUrl String
   rating String
   genre String
@@ -128,8 +128,8 @@ model Playstation {
   description String
   videoUrl String
   thumbnailUrl String
-  secondThumbnailUrl String
-  thirdThumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
   ageRatingUrl String
   rating String
   genre String
@@ -144,8 +144,8 @@ model Xbox {
   description String
   videoUrl String
   thumbnailUrl String
-  secondThumbnailUrl String
-  thirdThumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
   ageRatingUrl String
   rating String
   genre String
@@ -160,8 +160,8 @@ model Nintendo {
   description String
   videoUrl String
   thumbnailUrl String
-  secondThumbnailUrl String
-  thirdThumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
   ageRatingUrl String
   rating String
   genre String
@@ -176,8 +176,8 @@ model PC {
   description String
   videoUrl String
   thumbnailUrl String
-  secondThumbnailUrl String
-  thirdThumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
   ageRatingUrl String
   rating String
   genre String
@@ -192,8 +192,8 @@ model Indie {
   description String
   videoUrl String
   thumbnailUrl String
-  secondThumbnailUrl String
-  thirdThumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
   ageRatingUrl String
   rating String
   genre String
@@ -208,8 +208,8 @@ model Categorias {
   description String
   videoUrl String
   thumbnailUrl String
-  secondThumbnailUrl String
-  thirdThumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
   ageRatingUrl String
   rating String
   genre String

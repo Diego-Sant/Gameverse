@@ -15,7 +15,7 @@ const GameList: React.FC<MovieListProps> = ({data, title}) => {
     useEffect(() => {
         const loadingTimer = setTimeout(() => {
           setIsLoading(false);
-        }, 1500);
+        }, 2000);
     
         return () => clearTimeout(loadingTimer);
     }, []);

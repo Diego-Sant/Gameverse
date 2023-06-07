@@ -63,16 +63,6 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({ gameId }) => {
         }, 2000);
     }, [gameId, isFavorite, currentUser, mutate, mutateFavorites, isDisliked, mutateDislikes])
 
-    const handleMouseEnter = (e: any) => {
-        const tooltip = e.target.nextElementSibling;
-        tooltip.classList.add('show');
-    };
-    
-    const handleMouseLeave = (e: any) => {
-        const tooltip = e.target.nextElementSibling;
-        tooltip.classList.remove('show');
-    };
-
     const iconClassName = isFavorite ? "heart-icon active" : "heart-icon";
 
     return (

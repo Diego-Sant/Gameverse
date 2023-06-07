@@ -33,12 +33,13 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
                         }
                     },
                     {
-                        rating: {
-                            startsWith: query
+                        publisher: {
+                            contains: query,
+                            mode: 'insensitive'
                         }
                     },
                     {
-                        publisher: {
+                        secondThumbnailUrl: {
                             contains: query,
                             mode: 'insensitive'
                         }
@@ -53,9 +54,8 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
             }
           })
 
-          if (searchResults !== null) {
-            searchGames = [...searchGames, ...searchResults];
-          }
+          searchGames.push(...searchResults);
+          
         }
 
         const gamesIds = new Set();

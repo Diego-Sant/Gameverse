@@ -11,7 +11,7 @@ const GameCard = () => {
         setTimeout(() => {
           router.push(categoryPath);
           setIsLoading(false);
-        }, 2000);
+        }, 5000);
     };
 
     const LoadingScreen = () => {

@@ -1,5 +1,7 @@
 import GameGenresCard from "@/components/GameGenresCard";
+import InfoModal from "@/components/InfoModal";
 import Navbar from "@/components/Navbar";
+import useInfoModal from "@/hooks/useInfoModal";
 import {useSearchParams} from "next/navigation";
 import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
@@ -18,6 +20,7 @@ const fetchPosts = async (url: string) => {
 
 const SearchPage = () => {
     const router = useRouter();
+    const { isOpen, closeModal } = useInfoModal();
 
     const search = useSearchParams();
     const searchQuery = search ? search?.get('q') : null;
@@ -64,6 +67,7 @@ const SearchPage = () => {
 
     return (
         <>
+            <InfoModal visible={isOpen} onClose={closeModal} />
             <Navbar />
             <div className="relative mt-4">
                 <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4  gap-4 lg:gap-3">
