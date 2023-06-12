@@ -31,7 +31,7 @@ const GameList: React.FC<MovieListProps> = ({data, title}) => {
     return (
         <div className="relative mt-4">
                 <p className="text-white px-4 flex align-items justify-center text-xl lg:text-3xl font-bold">{title}</p>
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4  gap-4 lg:gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4  gap-4 lg:gap-3">
                     {data && data.map((game) => (
                         <GameGenresCard key={game.id} data={game} />
                     ))}

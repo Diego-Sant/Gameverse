@@ -17,7 +17,7 @@ const Navbar  = () => {
             <div className="px-4 md:px-16 py-3 flex sm:flex-row flex-col items-center duration-500" >
                 <Image src="/images/gamelogosite.png" onClick={() => router.push('/')} className="cursor-pointer duration-500 hover:scale-105" alt="Gameverse" width={140} height={140} priority={true} style={imageStyle} />
                 <div className="sm:ml-auto">
-                    <div className="flex flex-row items-center gap-4 relative sm:mt-0 mt-10">
+                    <div className="flex flex-row top-[0.10rem] items-center gap-4 relative sm:mt-0 mt-10">
                         
                         <SearchInput />
 

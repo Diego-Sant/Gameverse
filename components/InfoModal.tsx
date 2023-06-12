@@ -82,7 +82,7 @@ const InfoModal: React.FC<InfoModalProps> = ({ visible, onClose }) => {
 
                         <div className="px-12 pb-5 md:px-0 md:py-0">
                             <p className="text-white text-md md:pt-5 mr-2"><span className="text-gray-400">Gêneros:</span> {data.genre}</p>
-                            <p className="text-white text-md pt-5 mr-2 flex gap-2 md:gap-0 flex-row md:flex-col"><span className="text-gray-400">Editora:</span> {data.publisher}</p>
+                            <p className="text-white text-md pt-5 mr-2 flex gap-2 md:gap-0 flex-row md:flex-col"><span className="text-gray-400">Distribuidora:</span> {data.publisher}</p>
                             {data?.timeToBeat ? <p className="text-white text-md pt-5 mr-2 flex gap-2 md:gap-0 flex-row md:flex-col"><span className="text-gray-400">Tempo para zerar:</span>{data?.timeToBeat}</p> : ""}
                             <p className="text-white text-md pt-5 mr-2 flex gap-2 md:gap-0 flex-row md:flex-col"><span className="text-gray-400">Data de lançamento:</span> {data.released}</p>
                         </div>

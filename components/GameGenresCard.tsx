@@ -65,6 +65,7 @@ const GameGenresCard: React.FC<GameCardProps> = ({data}) => {
         <div className="group relative px-5 md:px-14" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
                 <div className="flex cursor-pointer items-center justify-center relative mt-8 mb-5 lg:mb-10" >
 
+                    
                     {data?.rating ? 
                         <div className="flex flex-row items-center absolute left-2 bottom-2 bg-[#450df2] rounded-lg py-1 px-2">
                             <AiFillStar className=" text-[#f5c518] mr-1" />

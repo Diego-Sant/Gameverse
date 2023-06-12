@@ -178,6 +178,7 @@ model PC {
   thumbnailUrl String
   secondThumbnailUrl String?
   thirdThumbnailUrl String?
+  plataform String?
   ageRatingUrl String
   rating String
   genre String
@@ -202,7 +203,119 @@ model Indie {
   publisher String
 }
 
-model Categorias {
+model Escolhas {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  videoUrl String
+  thumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
+  ageRatingUrl String
+  rating String
+  genre String
+  released String
+  timeToBeat String
+  publisher String
+}
+
+model Terror {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  videoUrl String
+  thumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
+  ageRatingUrl String
+  rating String
+  genre String
+  released String
+  timeToBeat String
+  publisher String
+}
+
+model Luta {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  videoUrl String
+  thumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
+  ageRatingUrl String
+  rating String
+  genre String
+  released String
+  timeToBeat String
+  publisher String
+}
+
+model MundoAberto {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  videoUrl String
+  thumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
+  ageRatingUrl String
+  rating String
+  genre String
+  released String
+  timeToBeat String
+  publisher String
+}
+
+model Corrida {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  videoUrl String
+  thumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
+  ageRatingUrl String
+  rating String
+  genre String
+  released String
+  timeToBeat String
+  publisher String
+}
+
+model Estrategia {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  videoUrl String
+  thumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
+  ageRatingUrl String
+  rating String
+  genre String
+  released String
+  timeToBeat String
+  publisher String
+}
+
+model RPG {
+  id String @id @default(auto()) @map("_id") @db.ObjectId
+  title String
+  description String
+  videoUrl String
+  thumbnailUrl String
+  secondThumbnailUrl String?
+  thirdThumbnailUrl String?
+  ageRatingUrl String
+  rating String
+  genre String
+  released String
+  timeToBeat String
+  publisher String
+}
+
+model Pixel {
   id String @id @default(auto()) @map("_id") @db.ObjectId
   title String
   description String

@@ -57,6 +57,14 @@ const SearchPage = () => {
         return () => clearTimeout(noResultsTimer);
     }, [data]);
 
+    useEffect(() => {
+        const loadingTimer = setTimeout(() => {
+          setIsLoading(false);
+        }, 2000);
+    
+        return () => clearTimeout(loadingTimer);
+    }, []);
+
     const LoadingScreen = () => {
         return (
           <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 z-50">
@@ -78,7 +86,7 @@ const SearchPage = () => {
                         ) : (
                             !isLoading && showNoResults && (
                             <div className="text-white font-bold flex text-sm md:text-lg items-center justify-center relative top-16 w-screen">
-                                <p>Não há nenhum jogo com esse título, gênero, distribuidora ou nota em nosso catálogo!</p>
+                                <p>Não há nenhum jogo com esse título, gênero e distribuidora ou youtuber em nosso catálogo!</p>
                             </div>
                             )
                     )}

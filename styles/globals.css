@@ -14,6 +14,16 @@ html {
     @apply h-full;
 }
 
+@media (max-width: 450px) {
+  .gridcols1min {
+    grid-template-columns: repeat(1, minmax(0, 1fr));
+    justify-items: center;
+  }
+  .iconmin {
+    display: none;
+  }
+}
+
 @keyframes growMargin {
     0% {
       margin-bottom: 0;

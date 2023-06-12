@@ -11,8 +11,8 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
 
             const {gameId} = req.body;
 
-            const games: {[key: string]: any} = {lancamentos: prismadb.lancamentos, emBreve: prismadb.emBreve, indie: prismadb.indie, categorias: prismadb.categorias, multiplayer: prismadb.multiPlayer, nintendo: prismadb.nintendo, pc: prismadb.pC, playstation: prismadb.playstation, singleplayer: prismadb.singlePlayer, xbox: prismadb.xbox}
-
+            const games: {[key: string]: any} = {lancamentos: prismadb.lancamentos, emBreve: prismadb.emBreve, indie: prismadb.indie, escolhas: prismadb.escolhas, luta: prismadb.luta, mundoaberto: prismadb.mundoAberto, rpg: prismadb.rPG, terror: prismadb.terror, estrategia: prismadb.estrategia, pixel: prismadb.pixel, multiplayer: prismadb.multiPlayer, nintendo: prismadb.nintendo, pc: prismadb.pC, playstation: prismadb.playstation, singleplayer: prismadb.singlePlayer, xbox: prismadb.xbox}
+            
             let existingGame = null;
 
             for (const game of Object.keys(games)) {
@@ -65,8 +65,8 @@ export default async function handler(req:NextApiRequest, res: NextApiResponse) 
       
             const { gameId } = req.query as { gameId: string };
       
-            const games: {[key: string]: any} = {lancamentos: prismadb.lancamentos, emBreve: prismadb.emBreve, indie: prismadb.indie, categorias: prismadb.categorias, multiplayer: prismadb.multiPlayer, nintendo: prismadb.nintendo, pc: prismadb.pC, playstation: prismadb.playstation, singleplayer: prismadb.singlePlayer, xbox: prismadb.xbox}
-
+            const games: {[key: string]: any} = {lancamentos: prismadb.lancamentos, emBreve: prismadb.emBreve, indie: prismadb.indie, escolhas: prismadb.escolhas, luta: prismadb.luta, mundoaberto: prismadb.mundoAberto, rpg: prismadb.rPG, terror: prismadb.terror, estrategia: prismadb.estrategia, pixel: prismadb.pixel, multiplayer: prismadb.multiPlayer, nintendo: prismadb.nintendo, pc: prismadb.pC, playstation: prismadb.playstation, singleplayer: prismadb.singlePlayer, xbox: prismadb.xbox}
+            
             let existingGame = null;
 
             for (const game of Object.keys(games)) {
